@@ -7,9 +7,11 @@ class User {
     constructor(body) {
         this.body = body;
     }
-    login() {
+    async login() {
         const client = this.body;
-        const { id, psword } = UserStorage.getUserInfo(client.id);
+        const { id, psword } = await UserStorage.getUserInfo(client.id);
+        // await >> promise를 반환하는 변수에만 사용 가능, ascync안에서만 사용 가능
+
         if (id) {
             if (id === client.id && psword === client.psword) {
                 return { success: true };
