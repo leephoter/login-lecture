@@ -12,7 +12,7 @@ function register() {
     if (!id.value) {
         return alert("아이디 입력 필수");
     }
-    if (psword !== confirmPsword) {
+    if (psword.value !== confirmPsword.value) {
         return alert("비밀번호 불일치");
     }
     const req = {
